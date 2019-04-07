@@ -3,16 +3,16 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="text-center">Registrar usuario</h2>
-                <form action="/action_page.php">
+                <form (submit)="addUser()">
                     <div class="imgcontainer">
                         <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
                     </div>
                     <div class="container">
                         <label for="uname"><b>Correo electrónico</b></label>
-                        <input type="text" placeholder="Ingresar correo electrónico" name="uname" required>
+                        <input type="text" placeholder="Ingresar correo electrónico" [(ngModel)]="email" name="uname" required>
 
                         <label for="psw"><b>Contraseña</b></label>
-                        <input type="password" placeholder="Ingregar contraseña" name="psw" required>
+                        <input type="password" placeholder="Ingregar contraseña" [(ngModel)]="password" name="psw" required>
 
                         <button class="btn-login" type="submit">Registrar</button>
                     </div>
