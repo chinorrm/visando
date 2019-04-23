@@ -15,9 +15,11 @@
                         <input type="password" placeholder="Ingregar contraseña" [(ngModel)]="password" name="psw" required>
 
                         <button class="btn-login" type="submit">Iniciar sesión</button>
-                        <button class="btn-google" type="submit">Continuar con Google</button>
                     </div>
                 </form>
+                <div class="container">
+                    <button class="btn-google" (click)="googleLogin()">Continuar con Google</button>
+                </div>
             </div>
         </div>
     </div>

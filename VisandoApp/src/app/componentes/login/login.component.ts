@@ -28,6 +28,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  googleLogin() {
+    this.authService.googleLogin()
+    .then((result) => {
+      this.router.navigate(['/main']);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
 
 
 

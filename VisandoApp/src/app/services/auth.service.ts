@@ -33,4 +33,8 @@ export class AuthService {
   getUserAuth() {
     return this.auth.authState.pipe(map( auth => auth));
   }
+
+  googleLogin() {
+    return this.auth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
+  }
 }

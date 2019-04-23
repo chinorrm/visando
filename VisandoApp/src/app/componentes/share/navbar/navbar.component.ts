@@ -4,12 +4,13 @@ import { AuthService } from '../../../services/auth.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styles: []
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
   public isLoged: boolean;
   public usuario: string;
   public emailUser: string;
+  public userPhoto: string;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
         this.isLoged = true;
         this.usuario = auth.displayName;
         this.emailUser = auth.email;
+        this.userPhoto = auth.photoURL;
       } else {
         this.isLoged = false;
       }
