@@ -16,6 +16,9 @@ import { RegisterComponent } from './componentes/register/register.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { MainLayoutComponent } from './componentes/main-layout/main-layout.component';
 import { PageNotFoundComponent } from './componentes/page-not-found/page-not-found.component';
+// guard
+import { AuthGuard } from './guard/auth.guard';
+
 
 
 @NgModule({
@@ -35,7 +38,7 @@ import { PageNotFoundComponent } from './componentes/page-not-found/page-not-fou
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
