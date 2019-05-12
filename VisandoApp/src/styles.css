@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
 @media screen and (max-width: 992px) {
     #main-navbar {
         clear: both;
     }
+}
+
+.calendarStyle {
+    margin: 1%;
 }

@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
         this.isLoged = true;
         this.usuario = auth.displayName;
         this.emailUser = auth.email;
-        this.userPhoto = auth.photoURL;
+        this.userPhoto = auth.photoURL ? auth.photoURL : null;
       } else {
         this.isLoged = false;
       }

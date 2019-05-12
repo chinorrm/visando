@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     this.auth.register(this.email, this.password)
     .then((result) => {
         console.log(result);
-        this.router.navigate(['/main']);
+        this.router.navigate(['/main/dashboard']);
     }).catch((err) => {
       console.log(err);
     });

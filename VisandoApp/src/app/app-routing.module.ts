@@ -6,12 +6,19 @@ import { RegisterComponent } from './componentes/register/register.component';
 import { MainLayoutComponent } from './componentes/main-layout/main-layout.component';
 import { PageNotFoundComponent } from './componentes/page-not-found/page-not-found.component';
 import { AuthGuard } from './guard/auth.guard';
+import { DasboardComponent } from './componentes/dasboard/dasboard.component';
+import { UserListComponent } from './componentes/user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
-  { path: 'main', component: MainLayoutComponent, canActivate: [AuthGuard] },
+  { path: 'main', component: MainLayoutComponent, canActivate: [AuthGuard],
+    children: [
+      { path: 'dashboard', component: DasboardComponent },
+      { path: 'clientList', component: UserListComponent }
+    ]
+  },
   { path: '**', component: PageNotFoundComponent}
 ];
 

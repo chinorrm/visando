@@ -7,7 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" *ngIf="isLoged" href="#" [routerLink]="['/main/dashboard']" routerLinkActive="router-link-active">Dashboard <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" *ngIf="isLoged" href="#" [routerLink]="['/main/clientList']" routerLinkActive="router-link-active">Clientes <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <ul class="navbar-nav float-lg-right ">
@@ -24,8 +27,12 @@
                 <a class="nav-link">{{usuario}}</a>
             </li>
             <li class="nav-item" *ngIf="isLoged">
-                <img src="{{userPhoto}}" class="rounded-circle">&nbsp;&nbsp;
-                <span class="badge pill badge-secondary">{{emailUser}}</span>
+                <div class="row" style="text-align: center; margin-left: 35%;">
+                    <img *ngIf="userPhoto" style="text-align: right" src="{{userPhoto}}" class="rounded-circle">&nbsp;&nbsp;<br>
+                </div>
+                <div class="row" style="align-content: right; margin-top: 5px; margin-bottom: 0px;">
+                    <span style="text-align: left" class="badge pill badge-secondary">{{emailUser}}</span>
+                </div>
             </li>
         </ul>
     </div>

@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.email, this.password)
     .then((result) => {
-      this.router.navigate(['/main']);
+      this.router.navigate(['/main/dashboard']);
     }).catch((err) => {
       console.log(err);
       this.router.navigate(['/login']);
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   googleLogin() {
     this.authService.googleLogin()
     .then((result) => {
-      this.router.navigate(['/main']);
+      this.router.navigate(['/main/dashboard']);
     }).catch((err) => {
       console.log(err);
     });
