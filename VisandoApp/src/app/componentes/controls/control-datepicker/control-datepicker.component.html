@@ -1,0 +1,15 @@
+<label class="k-form-field">
+    <span [ngStyle]="{'color' : (control.errors && (control.dirty || control.touched) ? 'red' : '')}">
+        {{label}}
+        <a *ngIf="helptext" class="float-right k-icon k-i-help k-icon-20" title="{{helptext}}"></a>
+    </span>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" [formControl]="control" ngbDatepicker #d="ngbDatepicker" [minDate]="mindate" (dateSelect)="onDateSelect($event)"/>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><i class="fas fa-calendar-alt"></i></button>
+            </div>
+        </div>
+    </div>
+    <app-control-errors [control]="control"></app-control-errors>
+</label>

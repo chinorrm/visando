@@ -1,0 +1,45 @@
+<div [ngSwitch]="type">
+    <label *ngSwitchCase="'text'" style="width: 100%">
+        <span [ngStyle]="{'color' : (!readonly && control.errors && (control.dirty || control.touched) ? 'red' : '')}">
+            {{label}}
+            <a *ngIf="helptext" class="float-right k-icon k-i-help k-icon-20" title="{{helptext}}"></a>
+        </span>
+        <input type="{{type}}" placeholder="{{placeholder}}" class="k-textbox" [disabled]="disabled" [value]="control.value"
+        [formControl]="control" [readonly]="readonly" (blur)="blurEvent($event)" (keydown)="keyDownEvent($event)" [ngClass]="{'control-input__readonly': readonly}" />
+
+        <!-- <input *ngIf="banderaIE==false" type="{{type}}" placeholder="{{placeholder}}" class="k-textbox" [disabled]="disabled" [value]="control.value"
+            [formControl]="control" [readonly]="readonly" (blur)="blurEvent($event)" (keydown)="keyDownEvent($event)" [ngClass]="{'control-input__readonly': readonly}" /> -->
+        <app-control-errors [control]="control"></app-control-errors>
+
+    </label>
+    <label *ngSwitchCase="'number'" style="width: 100%">
+        <span [ngStyle]="{'color' : (control.errors && (control.dirty || control.touched) ? 'red' : '')}">
+            {{label}}
+            <a *ngIf="helptext" class="float-right k-icon k-i-help k-icon-20" title="{{helptext}}"></a>
+        </span>
+        <input type="{{type}}" placeholder="{{placeholder}}" class="k-textbox" [disabled]="disabled" [value]="control.value"
+            [formControl]="control" />
+        <app-control-errors [control]="control"></app-control-errors>
+
+    </label>
+    <label *ngSwitchCase="'password'" style="width: 100%">
+        <span [ngStyle]="{'color' : (control.errors && (control.dirty || control.touched) ? 'red' : '')}">
+            {{label}}
+            <a *ngIf="helptext" class="float-right k-icon k-i-help k-icon-20" title="{{helptext}}"></a>
+        </span>
+        <input type="{{type}}" placeholder="{{placeholder}}" class="k-textbox" [disabled]="disabled" [value]="control.value"
+            [formControl]="control" />
+        <app-control-errors [control]="control"></app-control-errors>
+
+    </label>
+    <label *ngSwitchCase="'email'" style="width: 100%">
+        <span [ngStyle]="{'color' : (control.errors && (control.dirty || control.touched) ? 'red' : '')}">
+            {{label}}
+            <a *ngIf="helptext" class="float-right k-icon k-i-help k-icon-20" title="{{helptext}}"></a>
+        </span>
+        <input type="{{type}}" placeholder="{{placeholder}}" class="k-textbox" [disabled]="disabled" [value]="control.value"
+            [formControl]="control" />
+        <app-control-errors [control]="control"></app-control-errors>
+
+    </label>
+</div>

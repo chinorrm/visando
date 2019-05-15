@@ -1,0 +1,55 @@
+label {
+    width: 100% !important;
+    font-family: Prometo-Medium;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+.jqx-widget,
+.jqx-input {
+    width: inherit !important;
+    font-family: Verdana;
+    font-size: 14px;
+    color: #001024;
+    padding: 0.375rem 0.75rem;
+}
+
+div label span {
+    color: #1E78BF;
+    font-family: Prometo-Medium;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+}
+
+div label input,
+div label .jqx-widget,
+.jqx-widget,
+.jqx-input {
+    height: 35px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+}
+
+.control-input__readonly {
+    background-color: #e9ecef !important;
+}
+
+.input-group>.input-group-prepend>.input-group-text {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    background-color: #FFFFFF;
+}
+
+input-group-text.border-right-0:focus {
+    border-right: 0 !important;
+}
+
+.jqx-fill-state-focus {
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+}

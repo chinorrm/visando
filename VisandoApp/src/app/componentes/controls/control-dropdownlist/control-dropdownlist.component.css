@@ -1,0 +1,15 @@
+label {
+    width: 100% !important;
+    color: #1E78BF;
+    font-family: Prometo-Medium;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+}
+
+select {
+    width: inherit !important;
+    font-family: Verdana;
+    font-size: 14px;
+    color: #001024;
+}

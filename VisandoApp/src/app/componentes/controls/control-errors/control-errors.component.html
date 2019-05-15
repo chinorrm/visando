@@ -1,0 +1,15 @@
+<ngb-alert #alert (close)="hasError=false" style="font-family: Verdana; font-size: 14px;" *ngIf="hasError" [type]="'danger'">
+    <span *ngIf="control.errors?.required">Error</span>
+    <span *ngIf="control.errors?.minlength">Error {{control.errors?.minlength.requiredLength}}
+    caracteres</span>
+    <span *ngIf="control.errors?.maxlength">Error {{control.errors?.maxlength.requiredLength}}
+    caracteres</span>
+    <span *ngIf="control.errors?.max">Error {{control.errors?.max.max}}</span>
+    <span *ngIf="control.errors?.min">Error {{control.errors?.min.min}}</span>
+    <span *ngIf="control.errors?.minError">Error {{control.errors?.minError.minValue}}</span>
+    <span *ngIf="control.errors?.maxError">Error {{control.errors?.maxError.maxValue}}</span>
+    <span *ngIf="control.errors?.pattern">Error</span>
+    <span *ngIf="control.errors?.MatchPassword">Error</span>
+    <span *ngIf="control.errors?.email">Error</span>
+    <span *ngIf="control.errors?.EmployeeNumberPattern">Error</span>
+</ngb-alert>

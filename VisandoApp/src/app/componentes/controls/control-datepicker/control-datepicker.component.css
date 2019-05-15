@@ -1,0 +1,20 @@
+label {
+    width: 100% !important;
+    color: #1E78BF;
+    font-family: Prometo-Medium;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+}
+
+label span {
+    color: #1E78BF;
+    font-family: Prometo-Medium;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+}
+
+label div.form-group {
+    width: inherit;
+}

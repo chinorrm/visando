@@ -5,30 +5,33 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <h4 class="modal-title" id="modal-basic-title">Agregar cita</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-        <form novalidate (ngSubmit)="saveProduct()" [formGroup]="productForm">
-
-            <div class="form-group row mb-2">
-                <label class="col-md-2 col-form-label" for="productNameId">Product Name</label>
-                <div class="col-md-8">
-                    <input class="form-control" id="productNameId" type="text" placeholder="Name (required)" formControlName="productName" />
-                    <!-- <span class="invalid-feedback">
-                      {{displayMessage.productName}}
-                  </span> -->
+        <form novalidate (ngSubmit)="saveAppoinment()" [formGroup]="ClientForm">
+            <div class="form-group row mb-3">
+                <div class="col-md-4">
+                    <app-control-datepicker class="col-12 col-md-2" [label]="'Fecha cita'" [control]="ClientForm.controls.appointmentDate"></app-control-datepicker>
+                </div>
+                <div class="col-md-4">
+                    <app-control-input class="col-12 col-md-6" [label]="'Nombre'" [control]="ClientForm.controls.name"></app-control-input>
+                </div>
+                <div class="col-md-4">
+                    <app-control-dropdownlist [label]="'Estatus visa'"></app-control-dropdownlist>
+                    <!-- <control-dropdownlist class="col-12 col-md" [label]="('HandEmployeeArea' | translate)" [control]="handForm.controls.employee.get('areaId')" [valueField]="'catalogueElementId'" [textField]="'element'" [data]="employeeAreas"></control-dropdownlist> -->
                 </div>
             </div>
             <div class="form-group row mb-2">
                 <div class="offset-md-2 col-md-4">
-                    <button class="btn btn-primary mr-3" style="width:80px;" type="submit" [title]="productForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'" [disabled]="!productForm.valid">
+                    <button class="btn btn-primary mr-3" style="width:80px;" type="submit" [title]="ClientForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'" [disabled]="!ClientForm.valid">
                     Save
                   </button>
                 </div>
             </div>
+            <pre>{{ClientForm.value | json}}</pre>
         </form>
     </div>
     <div class="modal-footer">
@@ -37,7 +40,3 @@
 </ng-template>
 
 <button [hidden]="true" id="btnModal" class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
-<!-- 
-<hr>
-
-<pre>{{closeResult}}</pre> -->

@@ -1,0 +1,11 @@
+<label class="k-form-field" style="width: 100%;">
+    <span [ngStyle]="{'color' : (control.errors && (control.dirty || control.touched) ? 'red' : '')}">
+      {{label}}
+      <a *ngIf="helptext" class="float-right k-icon k-i-help k-icon-20" title="{{helptext}}"></a>
+    </span>
+    <select class="custom-select" style="width: 100%;" [formControl]="control" [disabled]="disabled">
+        <option [ngValue]="null">seleccionar..</option>
+        <option *ngFor="let item of data" [ngValue]="item[valueField]">{{item[textField]}}</option>
+    </select>
+    <app-control-errors [control]="control"></app-control-errors>
+  </label>

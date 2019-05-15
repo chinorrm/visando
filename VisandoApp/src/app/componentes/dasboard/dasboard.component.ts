@@ -8,6 +8,7 @@ import { OptionsInput } from '@fullcalendar/core';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
+import { ModelConsulado } from '../../Models/model.consulado';
 
 @Component({
   selector: 'app-dasboard',
@@ -16,21 +17,36 @@ import { UsersService } from '../../services/users.service';
 })
 export class DasboardComponent implements OnInit {
    options: OptionsInput;
+   public userConsulado: ModelConsulado[] = [];
    public locale = esLocale;
    closeResult: string;
    calendarPlugins = [dayGridPlugin]; // important!
-   productForm: FormGroup;
+   ClientForm: FormGroup;
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
   constructor(private user: UsersService, private modalService: NgbModal, public activeModal: NgbActiveModal, private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.user.loadConsulado();
-    this.user.loadRelacion();
-    this.user.loadStatusCita();
-    this.user.loadStatusPago();
-    this.user.loadStatusVisa();
-    this.productForm = this.fb.group({
-      productName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+    this.user.loadConsulado().subscribe((response) => {
+      console.log('Result: ', response);
+    });
+    this.user.loadRelacion().subscribe((result) => {
+      console.log('Relacion: ', result);
+    });
+    this.user.loadStatusCita().subscribe((result) => {
+      console.log('Cita: ', result);
+    });
+    this.user.loadStatusPago().subscribe((result) => {
+      console.log('Pago: ', result);
+    });
+    this.user.loadStatusVisa().subscribe((result) => {
+      console.log('Visa: ', result);
+    });
+    this.user.loadUserList().subscribe((result) => {
+      console.log('List:', result); 
+    })
+    this.ClientForm = this.fb.group({
+      appointmentDate: [''],
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
     });
     //#region Options modal region
     this.options = {
@@ -56,7 +72,7 @@ export class DasboardComponent implements OnInit {
   }
   //#region Modal open close
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size: 'lg'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -82,6 +98,8 @@ export class DasboardComponent implements OnInit {
   dateClick(model) {
     console.log(model);
   }
+  saveAppoinment() {
 
+  }
 
 }

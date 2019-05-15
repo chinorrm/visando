@@ -23,6 +23,11 @@ import { DasboardComponent } from './componentes/dasboard/dasboard.component';
 // calendar
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { UserListComponent } from './componentes/user-list/user-list.component';
+import { ControlErrorsComponent } from './componentes/controls/control-errors/control-errors.component';
+import { ControlInputComponent } from './componentes/controls/control-input/control-input.component';
+import { ControlDatepickerComponent } from './componentes/controls/control-datepicker/control-datepicker.component';
+import { ControlDropdownlistComponent } from './componentes/controls/control-dropdownlist/control-dropdownlist.component';
+
 
 
 
@@ -36,7 +41,11 @@ import { UserListComponent } from './componentes/user-list/user-list.component';
     MainLayoutComponent,
     PageNotFoundComponent,
     DasboardComponent,
-    UserListComponent
+    UserListComponent,
+    ControlErrorsComponent,
+    ControlInputComponent,
+    ControlDatepickerComponent,
+    ControlDropdownlistComponent
   ],
   imports: [
     BrowserModule,
