@@ -1,88 +1,70 @@
-<div class="row calendarStyle">
-    <full-calendar *ngIf="options" #fullcalendar [editable]="true" [events]="eventsModel" [header]="options.header" [customButtons]="options.customButtons" (dateClick)="dateClick($event)" (eventDragStop)="eventDragStop($event)" [plugins]="options.plugins"
-        [locale]="locale" (eventClick)="eventClick($event)" [columnHeaderHtml]="options.columnHeaderHtml"></full-calendar>
-</div>
-
-<!-- <ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Agregar cita</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-        <form novalidate (ngSubmit)="saveAppoinment()" [formGroup]="ClientForm">
-            <div class="form-group row mb-3">
-                <div class="col-md-4">
+<div class="col-12">
+    <div class="row card">
+        <form novalidate class="col-12" (ngSubmit)="saveAppoinment()" [formGroup]="ClientForm">
+            <div class="form-group row">
+                <div class="col-md-3">
                     <app-control-datepicker class="col-12 col-md-2" [label]="'Fecha cita'" [control]="ClientForm.controls.appointmentDate"></app-control-datepicker>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'Nombre'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'Apellido paterno'" [control]="ClientForm.controls.name"></app-control-input>
-                    <control-dropdownlist class="col-12 col-md" [label]="('HandEmployeeArea' | translate)" [control]="handForm.controls.employee.get('areaId')" [valueField]="'catalogueElementId'" [textField]="'element'" [data]="employeeAreas"></control-dropdownlist>
+                    <!-- <control-dropdownlist class="col-12 col-md" [label]="('HandEmployeeArea' | translate)" [control]="handForm.controls.employee.get('areaId')" [valueField]="'catalogueElementId'" [textField]="'element'" [data]="employeeAreas"></control-dropdownlist> -->
                 </div>
-            </div>
-            <div class="form-group row mb-3">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'Apellido materno'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
                     <app-control-datepicker class="col-12 col-md-2" [label]="'Fecha nacimiento'" [control]="ClientForm.controls.appointmentDate"></app-control-datepicker>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'CURP'" [control]="ClientForm.controls.name"></app-control-input>
-                    <app-control-dropdownlist [label]="'Estatus visa'"></app-control-dropdownlist>
-                    <control-dropdownlist class="col-12 col-md" [label]="('HandEmployeeArea' | translate)" [control]="handForm.controls.employee.get('areaId')" [valueField]="'catalogueElementId'" [textField]="'element'" [data]="employeeAreas"></control-dropdownlist>
+                    <!-- <app-control-dropdownlist [label]="'Estatus visa'"></app-control-dropdownlist> -->
+                    <!-- <control-dropdownlist class="col-12 col-md" [label]="('HandEmployeeArea' | translate)" [control]="handForm.controls.employee.get('areaId')" [valueField]="'catalogueElementId'" [textField]="'element'" [data]="employeeAreas"></control-dropdownlist> -->
                 </div>
-            </div>
-            <div class="form-group row mb-3">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [type]="'email'" [label]="'Correo'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'Contraseña'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'No pasaporte'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
-            </div>
-            <div class="form-group row mb-3">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'DS160'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'Usuario CAS'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'Contraseña'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
             </div>
-            <div class="form-group row mb-3">
-                <div class="col-md-4">
+            <div class="form-group row">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'DS160'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'Usuario CAS'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <app-control-input class="col-12 col-md-6" [label]="'Contraseña'" [control]="ClientForm.controls.name"></app-control-input>
                 </div>
             </div>
-            <div class="form-group row mb-2">
+            <div class="form-group row">
                 <div class="offset-md-2 col-md-4">
                     <button class="btn btn-primary mr-3" style="width:80px;" type="submit" [title]="ClientForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'" [disabled]="!ClientForm.valid">
-                    Save
-                  </button>
+                Save
+              </button>
                 </div>
             </div>
             <pre>{{ClientForm.value | json}}</pre>
         </form>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div>
-</ng-template> -->
-
-<button [hidden]="true" id="btnModal" class="btn btn-lg btn-outline-primary" (click)="goToAdd()">Launch demo modal</button>
+</div>

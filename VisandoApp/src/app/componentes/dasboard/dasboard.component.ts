@@ -9,6 +9,7 @@ import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
 import { ModelConsulado } from '../../Models/model.consulado';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dasboard',
@@ -21,9 +22,10 @@ export class DasboardComponent implements OnInit {
    public locale = esLocale;
    closeResult: string;
    calendarPlugins = [dayGridPlugin]; // important!
-   ClientForm: FormGroup;
+   
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
-  constructor(private user: UsersService, private modalService: NgbModal, public activeModal: NgbActiveModal, private fb: FormBuilder) {}
+  constructor(private router: Router, private user: UsersService, private modalService: NgbModal,
+              public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
     this.user.loadConsulado().subscribe((response) => {
@@ -41,13 +43,6 @@ export class DasboardComponent implements OnInit {
     this.user.loadStatusVisa().subscribe((result) => {
       console.log('Visa: ', result);
     });
-    this.user.loadUserList().subscribe((result) => {
-      console.log('List:', result); 
-    })
-    this.ClientForm = this.fb.group({
-      appointmentDate: [''],
-      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-    });
     //#region Options modal region
     this.options = {
       editable: true,
@@ -62,9 +57,7 @@ export class DasboardComponent implements OnInit {
         }
       },
       header: {
-        right: 'myCustomButton today prev,next',
-        // center: 'title',
-        // left: 'dayGridMonth'
+        right: 'myCustomButton today prev,next'
       },
       plugins: [dayGridPlugin, interactionPlugin]
     };
@@ -98,8 +91,8 @@ export class DasboardComponent implements OnInit {
   dateClick(model) {
     console.log(model);
   }
-  saveAppoinment() {
-
+  goToAdd() {
+    this.router.navigate(['/main/addCustomer']);
   }
 
 }

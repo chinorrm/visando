@@ -27,6 +27,7 @@ import { ControlErrorsComponent } from './componentes/controls/control-errors/co
 import { ControlInputComponent } from './componentes/controls/control-input/control-input.component';
 import { ControlDatepickerComponent } from './componentes/controls/control-datepicker/control-datepicker.component';
 import { ControlDropdownlistComponent } from './componentes/controls/control-dropdownlist/control-dropdownlist.component';
+import { AddCustomerComponent } from './componentes/add-customer/add-customer.component';
 
 
 
@@ -45,7 +46,8 @@ import { ControlDropdownlistComponent } from './componentes/controls/control-dro
     ControlErrorsComponent,
     ControlInputComponent,
     ControlDatepickerComponent,
-    ControlDropdownlistComponent
+    ControlDropdownlistComponent,
+    AddCustomerComponent
   ],
   imports: [
     BrowserModule,

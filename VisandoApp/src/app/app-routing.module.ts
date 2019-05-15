@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './componentes/page-not-found/page-not-fou
 import { AuthGuard } from './guard/auth.guard';
 import { DasboardComponent } from './componentes/dasboard/dasboard.component';
 import { UserListComponent } from './componentes/user-list/user-list.component';
+import { AddCustomerComponent } from './componentes/add-customer/add-customer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'main', component: MainLayoutComponent, canActivate: [AuthGuard],
     children: [
       { path: 'dashboard', component: DasboardComponent },
-      { path: 'clientList', component: UserListComponent }
+      { path: 'clientList', component: UserListComponent },
+      { path: 'addCustomer', component: AddCustomerComponent }
     ]
   },
   { path: '**', component: PageNotFoundComponent}
